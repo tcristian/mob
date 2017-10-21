@@ -1,5 +1,6 @@
 # Mobile Apps.
-App description: Still thinking about it ..
+App Name : My App
+App Desc.: Still thinking about it ..
 
 
 
