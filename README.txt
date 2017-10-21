@@ -1,5 +1,5 @@
-#Mobile_Apps
-App Name : My App \n
+# Mobile Apps
+App Name : My App 
 App Desc.: Still thinking about it ..
 
 
