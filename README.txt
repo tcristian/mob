@@ -1,5 +1,5 @@
 # Mobile Apps.
-App Name : My App\n
+App Name : My App 
 App Desc.: Still thinking about it ..
 
 
