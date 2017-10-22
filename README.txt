@@ -1,6 +1,6 @@
 # Mobile Apps
-App Name : My App 
-App Desc.: Still thinking about it ..
+App Name : Movies Database
+App Desc.: The app will contain informations about movies and tv series. Something like IMDb or TMDb.
 
 
 
