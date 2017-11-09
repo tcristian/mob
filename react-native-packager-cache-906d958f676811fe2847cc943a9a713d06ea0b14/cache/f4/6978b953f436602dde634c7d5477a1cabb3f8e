@@ -1,0 +1,222 @@
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp2,
+    _jsxFileName = '/Users/cristiantimar/Documents/College/MobileP/reactnative/mdb/pages/products2.js';
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var _components = {
+	products: {
+		displayName: 'products'
+	}
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+	filename: '/Users/cristiantimar/Documents/College/MobileP/reactnative/mdb/pages/products2.js',
+	components: _components,
+	locals: [module],
+	imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+	return function (Component) {
+		return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+	};
+}
+
+var products = _wrapComponent('products')((_temp2 = _class = function (_Component) {
+	_inherits(products, _Component);
+
+	function products() {
+		var _ref,
+		    _this2 = this;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, products);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = products.__proto__ || Object.getPrototypeOf(products)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			data: []
+		}, _this.fetchData = function _callee() {
+			var params, response, products;
+			return regeneratorRuntime.async(function _callee$(_context) {
+				while (1) {
+					switch (_context.prev = _context.next) {
+						case 0:
+							params = _this.props.navigation.state.params;
+							_context.next = 3;
+							return regeneratorRuntime.awrap(fetch('http://hardeepcoder.com/laravel/easyshop/api/products/' + params.id));
+
+						case 3:
+							response = _context.sent;
+							_context.next = 6;
+							return regeneratorRuntime.awrap(response.json());
+
+						case 6:
+							products = _context.sent;
+
+							_this.setState({ data: products });
+						case 8:
+						case 'end':
+							return _context.stop();
+					}
+				}
+			}, null, _this2);
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(products, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.fetchData();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var params = this.props.navigation.state.params;
+
+			return _react3.default.createElement(
+				_reactNative.View,
+				{ style: styles.container, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 30
+					}
+				},
+				_react3.default.createElement(
+					_reactNative.Text,
+					{ style: styles.pageName, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 31
+						}
+					},
+					params.cat
+				),
+				_react3.default.createElement(_reactNative.FlatList, {
+					data: this.state.data,
+					keyExtractor: function keyExtractor(x, i) {
+						return i;
+					},
+					renderItem: function renderItem(_ref2) {
+						var item = _ref2.item;
+						return _react3.default.createElement(
+							_reactNative.View,
+							{ style: styles.productBox, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 36
+								}
+							},
+							_react3.default.createElement(_reactNative.Image, { style: { height: 250, width: '100%' }, source: { uri: item.pro_img }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 37
+								}
+							}),
+							_react3.default.createElement(
+								_reactNative.Text,
+								{ style: styles.price, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 38
+									}
+								},
+								item.pro_price
+							),
+							_react3.default.createElement(
+								_reactNative.Text,
+								{ style: styles.proName, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 39
+									}
+								},
+								item.pro_name
+							)
+						);
+					},
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 32
+					}
+				})
+			);
+		}
+	}]);
+
+	return products;
+}(_react2.Component), _class.navigationOptions = function (_ref3) {
+	var navigation = _ref3.navigation;
+	return {
+		title: 'Products',
+		headerRight: _react3.default.createElement(
+			_reactNative.TouchableOpacity,
+			{ onPress: function onPress() {
+					return navigation.navigate("Home");
+				},
+				style: { backgroundColor: 'orange', margin: 10, padding: 10 }, __source: {
+					fileName: _jsxFileName,
+					lineNumber: 8
+				}
+			},
+			_react3.default.createElement(
+				_reactNative.Text,
+				{ style: { color: '#fff' }, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 10
+					}
+				},
+				'Home'
+			)
+		)
+	};
+}, _temp2));
+
+exports.default = products;
+
+var styles = _reactNative.StyleSheet.create({
+	container: {
+		flex: 1,
+		flexDirection: 'column',
+		justifyContent: 'center'
+
+	},
+	pageName: {
+		margin: 10, fontWeight: 'bold',
+		color: '#000', textAlign: 'center'
+	},
+	productBox: {
+		padding: 5, margin: 10, borderColor: 'orange', borderBottomWidth: 1
+	},
+	price: {
+		padding: 5, color: 'orange', fontWeight: 'bold', textAlign: 'center'
+	},
+	proName: {
+		padding: 5, color: 'blue', textAlign: 'center'
+	}
+});
+_reactNative.AppRegistry.registerComponent('products', function () {
+	return products;
+});

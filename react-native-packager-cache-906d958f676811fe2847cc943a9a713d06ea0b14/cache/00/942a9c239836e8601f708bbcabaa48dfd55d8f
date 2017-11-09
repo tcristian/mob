@@ -1,0 +1,314 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/cristiantimar/Documents/College/MobileP/reactnative/mdb/screens/Home.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _firebase = require('firebase');
+
+var firebase = _interopRequireWildcard(_firebase);
+
+var _Input = require('../components/Input');
+
+var _Button = require('../components/Button');
+
+var _reactNativeLoadingSpinnerOverlay = require('react-native-loading-spinner-overlay');
+
+var _reactNativeLoadingSpinnerOverlay2 = _interopRequireDefault(_reactNativeLoadingSpinnerOverlay);
+
+var _reactNativeMaterialBottomNavigation = require('react-native-material-bottom-navigation');
+
+var _reactNativeMaterialBottomNavigation2 = _interopRequireDefault(_reactNativeMaterialBottomNavigation);
+
+var _MaterialIcons = require('@expo/vector-icons/MaterialIcons');
+
+var _MaterialIcons2 = _interopRequireDefault(_MaterialIcons);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    Home: {
+        displayName: 'Home'
+    }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: '/Users/cristiantimar/Documents/College/MobileP/reactnative/mdb/screens/Home.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+}
+
+var Home = _wrapComponent('Home')(function (_Component) {
+    _inherits(Home, _Component);
+
+    function Home() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Home);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Home.__proto__ || Object.getPrototypeOf(Home)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            email: '',
+            password: '',
+            authenticating: true,
+            message: '',
+            visible: true
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Home, [{
+        key: 'goToMovies',
+        value: function goToMovies() {
+            _reactNativeRouterFlux.Actions.movies();
+        }
+    }, {
+        key: 'goToSeries',
+        value: function goToSeries() {
+            _reactNativeRouterFlux.Actions.series();
+        }
+    }, {
+        key: 'goToSupport',
+        value: function goToSupport() {
+            _reactNativeRouterFlux.Actions.support();
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var firebaseConfig = {
+                apiKey: 'AIzaSyDT7f1mgyEffrNVCtPAclDzAxu-rYOD3Qs',
+                authDomain: 'ios-mdb.firebaseapp.com'
+            };
+            firebase.initializeApp(firebaseConfig);
+        }
+    }, {
+        key: 'onLoginPress',
+        value: function onLoginPress() {
+            var _this2 = this;
+
+            this.setState({
+                message: '',
+                authenticating: true
+            });
+            var _state = this.state,
+                email = _state.email,
+                password = _state.password;
+
+            firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+                _this2.setState({
+                    message: 'Successfully logged in.',
+                    authenticating: true,
+                    visible: false
+                });
+            }).catch(function () {
+                firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+                    _this2.setState({
+                        message: 'Account was created with success.',
+                        authenticating: false,
+                        visible: false
+                    });
+                }).catch(function () {
+                    _this2.setState({
+                        message: 'There was a problem when we tried to create the account.',
+                        authenticating: false
+                    });
+                });
+            });
+        }
+    }, {
+        key: 'onPressSingIn',
+        value: function onPressSingIn() {
+            this.setState({
+                authenticating: true
+            });
+        }
+    }, {
+        key: 'goTo',
+        value: function goTo(index) {
+            if (index == 0) _reactNativeRouterFlux.Actions.movies();else if (index == 1) _reactNativeRouterFlux.Actions.series();else if (index == 2) _reactNativeRouterFlux.Actions.support();
+        }
+    }, {
+        key: 'renderCurrentState',
+        value: function renderCurrentState() {
+            var _this3 = this;
+
+            if (this.state.authenticating) {
+                return _react3.default.createElement(
+                    _reactNative.View,
+                    { style: styles.container, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 88
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNativeMaterialBottomNavigation2.default,
+                        {
+                            labelColor: 'white',
+                            rippleColor: 'white',
+                            backgroundColor: '#0397D6',
+                            style: { height: 56, position: 'absolute', left: 0, bottom: 0, right: 0 },
+                            onTabChange: function onTabChange(newTabIndex) {
+                                return _this3.goTo(newTabIndex);
+                            }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 89
+                            }
+                        },
+                        _react3.default.createElement(_reactNativeMaterialBottomNavigation.Tab, {
+                            label: 'Movies',
+                            icon: _react3.default.createElement(_MaterialIcons2.default, { size: 24, color: 'white', name: 'movie', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 97
+                                }
+                            }),
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 95
+                            }
+                        }),
+                        _react3.default.createElement(_reactNativeMaterialBottomNavigation.Tab, {
+                            label: 'Series',
+                            icon: _react3.default.createElement(_MaterialIcons2.default, { size: 24, color: 'white', name: 'tv', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 101
+                                }
+                            }),
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 99
+                            }
+                        }),
+                        _react3.default.createElement(_reactNativeMaterialBottomNavigation.Tab, {
+                            label: 'Support',
+                            icon: _react3.default.createElement(_MaterialIcons2.default, { size: 24, color: 'white', name: 'mail', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 105
+                                }
+                            }),
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 103
+                            }
+                        })
+                    )
+                );
+            }
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: styles.container, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 112
+                    }
+                },
+                _react3.default.createElement(_Input.Input, {
+                    placeholder: 'Your email..',
+                    label: 'Email',
+                    onChangeText: function onChangeText(email) {
+                        return _this3.setState({ email: email });
+                    },
+                    value: this.state.email,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 113
+                    }
+                }),
+                _react3.default.createElement(_Input.Input, {
+                    placeholder: 'Your password..',
+                    label: 'Password',
+                    secureTextEntry: true,
+                    onChangeText: function onChangeText(password) {
+                        return _this3.setState({ password: password });
+                    },
+                    value: this.state.password,
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 119
+                    }
+                }),
+                _react3.default.createElement(
+                    _Button.Button,
+                    { onPress: function onPress() {
+                            return _this3.onLoginPress();
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 127
+                        }
+                    },
+                    'Login'
+                ),
+                _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 128
+                        }
+                    },
+                    'Asd: ',
+                    this.state.message
+                )
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                _reactNative.View,
+                { style: styles.container, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 136
+                    }
+                },
+                this.renderCurrentState()
+            );
+        }
+    }]);
+
+    return Home;
+}(_react2.Component));
+
+exports.default = Home;
+
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+        width: '100%'
+    }
+});
