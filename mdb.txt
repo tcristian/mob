@@ -1,0 +1,9 @@
+MoviesDatabase
+
+- Firebase auth.
+- User Role : Admin / User 
+- A list of movies and Tv Series
+- Add, Update, Remove Movie / Serie
+- Contact Support
+-------
+The app is in progress.
