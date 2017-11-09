@@ -1,0 +1,6 @@
+framework module Pods_mdbUITests {
+  umbrella header "Pods-mdbUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
