@@ -1,0 +1,56 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Button = undefined;
+var _jsxFileName = '/Users/cristiantimar/Documents/College/MobileP/reactnative/mdb/components/Button.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Button = function Button(_ref) {
+    var onPress = _ref.onPress,
+        children = _ref.children;
+
+    return _react2.default.createElement(
+        _reactNative.TouchableOpacity,
+        { onPress: onPress, style: styles.button, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 10
+            }
+        },
+        _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.text, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 11
+                }
+            },
+            children
+        )
+    );
+};
+
+var styles = _reactNative.StyleSheet.create({
+    button: {
+        marginTop: 10,
+        padding: 20,
+        width: 120,
+        backgroundColor: '#00aeef',
+        borderRadius: 4,
+        alignItems: 'center',
+        marginLeft: 2.5,
+        marginRight: 2.5
+    },
+    text: {
+        color: '#ffffff',
+        fontWeight: '700',
+        fontSize: 18
+
+    }
+});
+exports.Button = Button;
