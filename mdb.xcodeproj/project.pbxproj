@@ -24,6 +24,9 @@
 		73B9D45D1F9F9D83009A9A64 /* mdbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D45C1F9F9D83009A9A64 /* mdbTests.swift */; };
 		73B9D4681F9F9D83009A9A64 /* mdbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D4671F9F9D83009A9A64 /* mdbUITests.swift */; };
 		73B9D4761F9F9DDC009A9A64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73B9D4751F9F9DDC009A9A64 /* GoogleService-Info.plist */; };
+		73D80BB51FD591D500C5A949 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D80BB61FD591D500C5A949 /* Charts.framework */; };
+		73DD4D191FD58FD5005BE87A /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD4D181FD58FD5005BE87A /* ChartViewController.swift */; };
+		73E8DB3E1FD56B7300C2B353 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E8DB3D1FD56B7300C2B353 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +72,9 @@
 		73B9D4671F9F9D83009A9A64 /* mdbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mdbUITests.swift; sourceTree = "<group>"; };
 		73B9D4691F9F9D83009A9A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73B9D4751F9F9DDC009A9A64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		73EC0B211FB05E8D00ACA818 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73D80BB61FD591D500C5A949 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73DD4D181FD58FD5005BE87A /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		73E8DB3D1FD56B7300C2B353 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		87B20639CC7CC1C04D6F0903 /* Pods-mdbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdbUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mdbUITests/Pods-mdbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D313B097A6F50FD8CC51636B /* Pods-mdb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mdb/Pods-mdb.debug.xcconfig"; sourceTree = "<group>"; };
 		DF726D8170C931C9773BE7B4 /* Pods-mdbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdbUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mdbUITests/Pods-mdbUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73D80BB51FD591D500C5A949 /* Charts.framework in Frameworks */,
 				2019A9D2967A5FB451943BD0 /* Pods_mdb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +119,8 @@
 				73A1E7491FAB86D8002BCB7C /* HomeViewController.swift */,
 				730115D51FAE2C3700CEC7F8 /* MoviesTableViewController.swift */,
 				730115DF1FAE48B300CEC7F8 /* MovieDetailViewController.swift */,
+				73E8DB3D1FD56B7300C2B353 /* AddViewController.swift */,
+				73DD4D181FD58FD5005BE87A /* ChartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,7 +212,7 @@
 		C1BDE237BE539AC5274724F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				73EC0B211FB05E8D00ACA818 /* Alamofire.framework */,
+				73D80BB61FD591D500C5A949 /* Charts.framework */,
 				66C8C473C7556A2C5D6A272C /* Pods_mdb.framework */,
 				3DCE93276ABA75FF8B2C0C8C /* Pods_mdbTests.framework */,
 				2283D2D97D35934B2A9BC036 /* Pods_mdbUITests.framework */,
@@ -354,19 +362,19 @@
 /* Begin PBXShellScriptBuildPhase section */
 		1388616E53ED26DC947F63BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-mdb/Pods-mdb-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -414,7 +422,7 @@
 		};
 		835047761FD9CA2DFE525599 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -429,7 +437,7 @@
 		};
 		8935B9F71AAC5E34C3521E00 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -514,12 +522,14 @@
 			files = (
 				730115D61FAE2C3700CEC7F8 /* MoviesTableViewController.swift in Sources */,
 				73B9D44A1F9F9D83009A9A64 /* ViewController.swift in Sources */,
+				73E8DB3E1FD56B7300C2B353 /* AddViewController.swift in Sources */,
 				73B9D4481F9F9D83009A9A64 /* AppDelegate.swift in Sources */,
 				73A1E7421FAB7F63002BCB7C /* Movie.swift in Sources */,
 				730115E01FAE48B300CEC7F8 /* MovieDetailViewController.swift in Sources */,
 				73016BFE1FA7B54300CA0ADD /* SupportViewController.swift in Sources */,
 				730115DE1FAE38CC00CEC7F8 /* MoviesTableViewCell.swift in Sources */,
 				73A1E74A1FAB86D8002BCB7C /* HomeViewController.swift in Sources */,
+				73DD4D191FD58FD5005BE87A /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

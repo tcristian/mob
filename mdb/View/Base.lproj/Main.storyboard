@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -262,9 +262,25 @@
                                     <constraint firstAttribute="width" constant="230" id="wnL-KW-LM4"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-tg-bTY">
+                                <rect key="frame" x="157" y="452" width="100" height="45"/>
+                                <color key="backgroundColor" red="0.32423749569999999" green="0.5646618605" blue="0.96870887279999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4Be-KY-bWS"/>
+                                    <constraint firstAttribute="height" constant="45" id="N44-hZ-4FF"/>
+                                </constraints>
+                                <state key="normal" title="Chart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nJA-bF-fQJ" kind="show" id="5gp-6e-zx6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92311143880000002" green="0.95595228669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="eHQ-tg-bTY" firstAttribute="centerX" secondItem="hO4-5X-Rbr" secondAttribute="centerX" id="OcW-QP-fqt"/>
+                            <constraint firstItem="eHQ-tg-bTY" firstAttribute="top" secondItem="hO4-5X-Rbr" secondAttribute="bottom" constant="59" id="aUj-eW-aoS"/>
                             <constraint firstItem="hO4-5X-Rbr" firstAttribute="centerX" secondItem="iTU-Ib-Ed0" secondAttribute="centerX" id="cHO-rk-oeG"/>
                             <constraint firstItem="hO4-5X-Rbr" firstAttribute="centerY" secondItem="iTU-Ib-Ed0" secondAttribute="centerY" id="uzw-j3-Y8g"/>
                         </constraints>
@@ -311,6 +327,55 @@
             </objects>
             <point key="canvasLocation" x="-517" y="571"/>
         </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="agn-ad-BJ6">
+            <objects>
+                <viewController id="nJA-bF-fQJ" customClass="ChartViewController" customModule="mdb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="dxd-KO-mNf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cg0-Qr-faQ">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Movies Statistics" id="cUI-Vr-M9Y">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Qd2-7V-daW">
+                                            <connections>
+                                                <action selector="goBackTapped:" destination="nJA-bF-fQJ" id="7Cg-rE-2N2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDm-1u-CwJ" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="217" width="365" height="234"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="234" id="7XK-lW-e7t"/>
+                                    <constraint firstAttribute="width" constant="374" id="8kL-Bw-OwQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92274705369999999" green="0.95398151170000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="cg0-Qr-faQ" firstAttribute="top" secondItem="lnq-Fq-kp7" secondAttribute="top" id="3M9-cm-H9p"/>
+                            <constraint firstItem="QDm-1u-CwJ" firstAttribute="centerX" secondItem="dxd-KO-mNf" secondAttribute="centerX" id="DK1-5J-8fL"/>
+                            <constraint firstAttribute="trailing" secondItem="cg0-Qr-faQ" secondAttribute="trailing" id="Kek-rH-SU2"/>
+                            <constraint firstItem="lnq-Fq-kp7" firstAttribute="bottom" secondItem="QDm-1u-CwJ" secondAttribute="bottom" constant="283" id="dHt-QA-Sm2"/>
+                            <constraint firstItem="QDm-1u-CwJ" firstAttribute="leading" secondItem="dxd-KO-mNf" secondAttribute="leadingMargin" id="gz1-3T-uZ8"/>
+                            <constraint firstItem="QDm-1u-CwJ" firstAttribute="centerY" secondItem="dxd-KO-mNf" secondAttribute="centerY" constant="-34" id="jrd-2a-RbU"/>
+                            <constraint firstItem="cg0-Qr-faQ" firstAttribute="leading" secondItem="dxd-KO-mNf" secondAttribute="leading" id="mQ9-4K-lTH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lnq-Fq-kp7"/>
+                    </view>
+                    <connections>
+                        <outlet property="lineChartView" destination="QDm-1u-CwJ" id="f2I-pR-g9G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waK-xq-lWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339.13043478260875" y="583.69565217391312"/>
+        </scene>
         <!--Movies List-->
         <scene sceneID="ogg-6v-QPh">
             <objects>
@@ -332,19 +397,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lst-Rv-raX">
-                                                    <rect key="frame" x="8" y="8" width="70" height="90"/>
+                                                    <rect key="frame" x="15" y="11" width="70" height="84.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="Y02-1x-VCW"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Vae-bu-ALt">
-                                                    <rect key="frame" x="86" y="21" width="302" height="77"/>
+                                                    <rect key="frame" x="93" y="24" width="288" height="71.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yt9-zq-3Qi">
-                                                    <rect key="frame" x="86" y="8" width="33.333333333333343" height="21"/>
+                                                    <rect key="frame" x="93" y="11" width="33.333333333333343" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -380,18 +445,22 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Movies" id="kc3-dq-Cn0">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="ix3-ar-DRS">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wMg-eS-WxL">
-                                                <rect key="frame" x="20" y="7" width="41" height="30"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="PAk-vd-62i">
+                                            <connections>
+                                                <action selector="BackButton:" destination="fNH-eh-MZN" id="KEO-zv-jRN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="m4Z-9u-y98">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M7F-vv-OYS">
+                                                <rect key="frame" x="321" y="7" width="73" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Home"/>
+                                                <state key="normal" title="Add Movie"/>
                                                 <connections>
-                                                    <action selector="goToHomeTapped:" destination="fNH-eh-MZN" eventType="touchUpInside" id="vGH-5d-jNI"/>
+                                                    <segue destination="C6h-og-1a9" kind="show" id="CxX-f2-TDS"/>
                                                 </connections>
                                             </button>
                                             <connections>
-                                                <action selector="goHomeTapped:" destination="fNH-eh-MZN" id="Ur9-ZT-fox"/>
-                                                <segue destination="zxM-sY-xQJ" kind="showDetail" identifier="goToHomeML" id="9KE-oF-wTb"/>
+                                                <action selector="goToAddMovie:" destination="fNH-eh-MZN" id="HQW-S1-RIz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -403,13 +472,116 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies List" id="cGE-2J-d9l"/>
                     <connections>
-                        <outlet property="goToHomeButton" destination="ix3-ar-DRS" id="OjF-SI-joH"/>
+                        <outlet property="tableView" destination="x6Z-WG-eyn" id="ij6-Qs-DKx"/>
                         <segue destination="LA7-VC-vTh" kind="show" identifier="goToMovieDetail" id="Vrg-ZU-Kr1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoc-NB-D9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2416" y="1456"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="Xwj-td-YYn">
+            <objects>
+                <viewController id="C6h-og-1a9" customClass="AddViewController" customModule="mdb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubw-T0-idJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-Wx-6x7">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Add Movie" id="QLx-cz-mC6">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="YRS-yu-7TH">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9x1-8O-FPg">
+                                                <rect key="frame" x="20" y="7" width="34" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <segue destination="zxM-sY-xQJ" kind="showDetail" id="BIu-k0-k5Y"/>
+                                                </connections>
+                                            </button>
+                                            <connections>
+                                                <action selector="BackButton:" destination="C6h-og-1a9" id="TIl-EU-RRQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l6T-VC-E72">
+                                <rect key="frame" x="57.666666666666657" y="288" width="300" height="160"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nI5-hg-HtK">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="TIu-7d-dXH"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Poster" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UIu-fB-HE8">
+                                        <rect key="frame" x="0.0" y="30" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="RKq-LK-Ma1"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBt-Vk-ymP">
+                                        <rect key="frame" x="0.0" y="60" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="djl-Yx-hQI"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uMS-We-sb0">
+                                        <rect key="frame" x="0.0" y="90" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="E2M-bN-pny"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsO-va-upi">
+                                        <rect key="frame" x="75" y="120" width="150" height="40"/>
+                                        <color key="backgroundColor" red="0.1523830894" green="0.69930027620000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="cK7-5T-oeM"/>
+                                            <constraint firstAttribute="height" constant="40" id="gxY-L6-HIj"/>
+                                        </constraints>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addButton:" destination="C6h-og-1a9" eventType="touchUpInside" id="WHE-ty-5du"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92274705369999999" green="0.95398151170000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="l6T-VC-E72" firstAttribute="centerX" secondItem="ubw-T0-idJ" secondAttribute="centerX" id="17c-DK-TdI"/>
+                            <constraint firstItem="l6T-VC-E72" firstAttribute="centerY" secondItem="ubw-T0-idJ" secondAttribute="centerY" id="E8B-3m-o5l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q9T-7X-M8W"/>
+                    </view>
+                    <connections>
+                        <outlet property="movie_desc" destination="uMS-We-sb0" id="afq-sa-Rcq"/>
+                        <outlet property="movie_poster" destination="UIu-fB-HE8" id="hvN-A9-OsM"/>
+                        <outlet property="movie_title" destination="nI5-hg-HtK" id="yDn-DT-aMR"/>
+                        <outlet property="movie_year" destination="bBt-Vk-ymP" id="NFS-KI-C5D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J1A-kP-IE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1442.0289855072465" y="1918.2065217391305"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="fyI-NA-XyR">
@@ -423,17 +595,14 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Movie Details" id="nzE-G5-sKh">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="Jvr-Qq-d5Z">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q8s-FY-D9X">
-                                                <rect key="frame" x="20" y="7" width="49" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Movies"/>
-                                                <connections>
-                                                    <action selector="GoBackTapped:" destination="LA7-VC-vTh" eventType="touchUpInside" id="Gi6-2n-7A2"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="VZ6-xM-1L5">
                                             <connections>
-                                                <segue destination="fNH-eh-MZN" kind="show" identifier="goBackToMovies" id="AWM-AL-5xo"/>
+                                                <action selector="BackButton:" destination="LA7-VC-vTh" id="J43-1x-hc1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Remove" id="GeS-9W-S7f">
+                                            <connections>
+                                                <action selector="RemoveButton:" destination="LA7-VC-vTh" id="Too-xR-PHb"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -504,7 +673,6 @@
                         <viewLayoutGuide key="safeArea" id="lqa-VT-vJ0"/>
                     </view>
                     <connections>
-                        <outlet property="GoBack" destination="Q8s-FY-D9X" id="idl-gt-KVD"/>
                         <outlet property="descText" destination="a0H-M3-Dh8" id="Wzq-0M-p3A"/>
                         <outlet property="titleText" destination="drj-AF-PHj" id="i5w-Zn-Hdt"/>
                     </connections>
@@ -541,7 +709,7 @@
         <image name="logo" width="374" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XHA-Hl-abb"/>
-        <segue reference="9KE-oF-wTb"/>
+        <segue reference="CxX-f2-TDS"/>
+        <segue reference="BIu-k0-k5Y"/>
     </inferredMetricsTieBreakers>
 </document>

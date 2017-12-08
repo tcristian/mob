@@ -1,5 +1,7 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Charts (3.0.4):
+    - Charts/Core (= 3.0.4)
+  - Charts/Core (3.0.4)
   - Firebase/Auth (4.4.0):
     - Firebase/Core
     - FirebaseAuth (= 4.3.0)
@@ -37,12 +39,12 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
+  - Charts
   - Firebase/Auth
   - Firebase/Core
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
   Firebase: 3e92884a63e8f76d107c43a67d2ab9071e1eda10
   FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
   FirebaseAuth: e0087d479709b20b9613b804704a928d6eafb052
@@ -52,6 +54,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: bd3a89aca8fd25a425d6cb1006a035914947e568
+PODFILE CHECKSUM: 2da87ba72ff2dcf1ca96fe96f71e1686f357f0b5
 
 COCOAPODS: 1.4.0.beta.2

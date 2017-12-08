@@ -15,13 +15,15 @@ class MovieDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var descText: UITextField!
     @IBOutlet var updateButton: UIButton!
     
-    var movies = [Movie]()
-    var asd = ""
-    var id = 0
+    var movs  = [Movie]()
+    var path = ""
+    var index = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleText.text = movies[id].title
-        self.descText.text = movies[id].desc
+        
+        
+        self.titleText.text = movs[index].Title
+        self.descText.text = movs[index].Desc
         self.titleText.delegate = self
         self.descText.delegate = self
         // Do any additional setup after loading the view.
@@ -37,33 +39,45 @@ class MovieDetailViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func GoBackTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goBackToMovies", sender: self)
+        //self.performSegue(withIdentifier: "goBackToMovies", sender: self)
+        dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func updateTapped(_ sender: UIButton) {
         if self.titleText.text != ""{
-            movies[id].title = self.titleText.text!
+            movs[index].Title = self.titleText.text!
         }
         if self.descText.text != ""{
-            movies[id].desc = self.descText.text!
+            movs[index].Desc = self.descText.text!
         }
-        
-        self.performSegue(withIdentifier: "goBackToMovies", sender: self)
+        NSKeyedArchiver.archiveRootObject(movs, toFile: path)
+        //self.performSegue(withIdentifier: "goBackToMovies", sender: self)
         // go back to the previous view controller
-        
+         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // get a reference to the second view controller
         if segue.identifier == "goBackToMovies" {
             let moviesVC = segue.destination as! MoviesTableViewController
             moviesVC.movies = movies
         }
-    }
+    }*/
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    
+    @IBAction func BackButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func RemoveButton(_ sender: Any) {
+        movs.remove(at: index)
+        NSKeyedArchiver.archiveRootObject(movs, toFile: path)
+        dismiss(animated: true, completion: nil)
     }
     
     /*

@@ -8,7 +8,7 @@ target 'mdb' do
   # Pods for mdb
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Alamofire', '~> 4.4'
+  pod 'Charts'
 
   target 'mdbTests' do
     inherit! :search_paths

@@ -12,7 +12,10 @@ class HomeViewController: UIViewController {
 
 
     @IBOutlet var moviesTapped: UIButton!
-    var movies = [Movie]()
+    
+    
+   
+    /*var movies = [Movie]()
     var m1 = Movie(title: "Deadpool", poster: "https://image.tmdb.org/t/p/w185/qbcpGKXQlG7UJHgmA14jYz6PXRr.jpg", year: 2016, desc: "Deadpool tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.", type: "movie")
     var m2 = Movie(title: "Thor: Ragnarok", poster: "https://image.tmdb.org/t/p/w185/avy7IR8UMlIIyE2BPCI4plW4Csc.jpg", year: 2017, desc: "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.", type: "movie")
     var m3 = Movie(title: "Ex Machina", poster: "https://image.tmdb.org/t/p/w185/btbRB7BrD887j5NrvjxceRDmaot.jpg", year: 2015, desc: "Caleb, a 26 year old coder at the world's largest internet company, wins a competition to spend a week at a private mountain retreat belonging to Nathan, the reclusive CEO of the company. But when Caleb arrives at the remote location he finds that he will have to participate in a strange and fascinating experiment in which he must interact with the world's first true artificial intelligence, housed in the body of a beautiful robot girl.", type: "movie")
@@ -22,10 +25,10 @@ class HomeViewController: UIViewController {
     var m7 = Movie(title: "Happy Death Day", poster: "https://image.tmdb.org/t/p/w1280/cTaEIUYTt52ooq9quVbAQ7NpGwo.jpg", year: 2017, desc: "A college student relives the day of her murder over and over again as she tries to discover her killer's identity.", type: "movie")
     var m8 = Movie(title: "Geostorm", poster: "https://image.tmdb.org/t/p/w1280/nrsx0jEaBgXq4PWo7SooSnYJTv.jpg", year: 2017, desc: "Gerard Butler playing a stubborn but charming satellite designer who, when the world’s climate-controlling satellites malfunction, has to work together with his estranged brother to save the world from a man-made storm of epic proportions. A trip into space follows, while on Earth a plot to assassinate the president begins to unfold.", type: "movie")
     var m9 = Movie(title: "Wonder Woman", poster: "https://image.tmdb.org/t/p/w1280/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg", year: 2017, desc: "An Amazon princess comes to the world of Man to become the greatest of the female superheroes.", type: "movie")
-    var m10 = Movie(title: "The Hunger Games: Mockingjay - Part 1", poster: "https://image.tmdb.org/t/p/w1280/gj282Pniaa78ZJfbaixyLXnXEDI.jpg", year: 2014, desc: "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.", type: "movie")
+    var m10 = Movie(title: "The Hunger Games: Mockingjay - Part 1", poster: "https://image.tmdb.org/t/p/w1280/gj282Pniaa78ZJfbaixyLXnXEDI.jpg", year: 2014, desc: "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.", type: "movie")*/
     override func viewDidLoad() {
         super.viewDidLoad()
-        movies.append(m1!)
+        /*movies.append(m1!)
         movies.append(m2!)
         movies.append(m3!)
         movies.append(m4!)
@@ -34,7 +37,7 @@ class HomeViewController: UIViewController {
         movies.append(m7!)
         movies.append(m8!)
         movies.append(m9!)
-        movies.append(m10!)
+        movies.append(m10!)*/
         
         // Do any additional setup after loading the view.
     }
@@ -45,13 +48,14 @@ class HomeViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // get a reference to the second view controller
-        let detailVC = segue.destination as! MoviesTableViewController
-        detailVC.movies = movies
+        //let detailVC = segue.destination as! MoviesTableViewController
+        //detailVC.movies = movies
     }
     
     @IBAction func moviesTappedAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToMovies", sender: self)
     }
+    
     /*
     // MARK: - Navigation
 
